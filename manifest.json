@@ -3,19 +3,27 @@
     "version": "1.0",
     "description": "A simple productivity extension. Each day asks you for a list of things you need to do. Blocks n websites. Unblocks if you read and re-type that list.",
     "manifest_version": 2,
-    }
-    "icons": {
-        "16": "icon16.png",
-        "48": "icon48.png",
-        "128": "icon128.png"
+    "background": {
+      "scripts": ["background.js"],
+      "persistent": false
     },
-    "content_scripts": [
-        {
-            "matches": ["site"],
-        }
-    ],
-    "permissions": ["tabs"]
+    "page_action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+      }
+    },
+       "icons": {
+      "16": "images/get_started16.png",
+      "32": "images/get_started32.png",
+      "48": "images/get_started48.png",
+      "128": "images/get_started128.png"
+    },
 }
 
-/* The general idea is for js to check whether the url is in a list of blocked websites. 
-If so, then it redirects to a holder page, with the chance to get out. */ 
+/* The general idea is for js to compare  the url to a list of blocked urls. 
+If so, then it redirects to a holder page, with the chance to get out.
+If not, then it loads the url. */ 
