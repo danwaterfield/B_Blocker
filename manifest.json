@@ -1,0 +1,21 @@
+{
+    "name": "Burney Blocker",
+    "version": "1.0",
+    "description": "A simple productivity extension. Each day asks you for a list of things you need to do. Blocks n websites. Unblocks if you read and re-type that list.",
+    "manifest_version": 2,
+    }
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["site"],
+        }
+    ],
+    "permissions": ["tabs"]
+}
+
+/* The general idea is for js to check whether the url is in a list of blocked websites. 
+If so, then it redirects to a holder page, with the chance to get out. */ 
